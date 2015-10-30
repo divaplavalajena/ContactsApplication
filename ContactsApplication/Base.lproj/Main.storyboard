@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1h8-ss-cfy" kind="show" identifier="UpdateContact" id="eIK-Kk-OM2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -143,4 +146,7 @@
             <point key="canvasLocation" x="168" y="53"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="eIK-Kk-OM2"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -108,14 +108,32 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "UpdateContact" {
+            let selectedItem: NSManagedObject = List[self.tableView.indexPathForSelectedRow!.row] as! NSManagedObject
+            
+            let ViewCon: AddViewController = segue.destinationViewController as! AddViewController
+            
+            ViewCon.contactName = selectedItem.valueForKey("contactname") as! String
+            ViewCon.contactNumber = selectedItem.valueForKey("contactnumber") as! String
+            
+            ViewCon.ExistingItem = selectedItem
+            
+        }
+        
+        
     }
-    */
+    
 
 }
+
+
+
+

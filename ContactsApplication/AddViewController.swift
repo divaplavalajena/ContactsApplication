@@ -15,10 +15,21 @@ class AddViewController: UIViewController {
     
     @IBOutlet var numberTextField: UITextField!
     
+    var contactName: String = ""
+    var contactNumber: String = ""
+    
+    var ExistingItem: NSManagedObject!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (ExistingItem != nil) {
+            
+            nameTextField.text = contactName
+            numberTextField.text = contactNumber
+            
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -50,12 +61,24 @@ class AddViewController: UIViewController {
         //create entity to access SocialList to save data to the two attributes
         let theEnt = NSEntityDescription.entityForName("SocialList", inManagedObjectContext: theContext)
         
-        //reference theEnt or the entity - create a new item and add it to the database
-        let newItem = Model(entity: theEnt!, insertIntoManagedObjectContext: theContext)
+        if (ExistingItem != nil){
+            
+            ExistingItem.setValue(nameTextField.text as String?, forKey: "contactname")
+            ExistingItem.setValue(numberTextField.text as String?, forKey: "contactnumber")
+
+            
+        }else {
+            
+            //reference theEnt or the entity - create a new item and add it to the database
+            let newItem = Model(entity: theEnt!, insertIntoManagedObjectContext: theContext)
+            
+            //add text to the new Items in the database based on attribute
+            newItem.contactname = nameTextField.text!
+            newItem.contactnumber = numberTextField.text!
+            
+        }
         
-        //add text to the new Items in the database based on attribute
-        newItem.contactname = nameTextField.text!
-        newItem.contactnumber = numberTextField.text!
+        
         
         //save it to the database
         do {
