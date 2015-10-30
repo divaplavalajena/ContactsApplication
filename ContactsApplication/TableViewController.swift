@@ -41,6 +41,20 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return List.count
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let request = NSFetchRequest(entityName: "SocialList")
+        
+        List = try! context.executeFetchRequest(request)
+        tableView.reloadData()
+        
+        
+    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
