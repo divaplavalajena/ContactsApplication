@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
+    
+    //array linked to all data in the database to display in individual cells in tableview
+    var List: Array<AnyObject> = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +34,30 @@ class TableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return List.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        
+        let cellIdentifier = "Cell"
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)!
+        
+        //let for NSManagedObject to link to list
+        let data: NSManagedObject = List[indexPath.row] as! NSManagedObject
+        
+        //Display data in a certain way
+        cell.textLabel?.text = data.valueForKey("contactname") as? String
+        cell.detailTextLabel?.text = data.valueForKey("contactnumber") as? String
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
