@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C417AEE1BE3328400F6E5A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C417AED1BE3328400F6E5A6 /* CoreData.framework */; };
 		9C417AF01BE333B100F6E5A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C417AEF1BE333B100F6E5A6 /* Model.swift */; };
+		9C417AF21BE346B200F6E5A6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C417AF11BE346B200F6E5A6 /* MessageUI.framework */; };
 		9CEE99A51BE17BE800F83A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE99A41BE17BE800F83A55 /* AppDelegate.swift */; };
 		9CEE99AA1BE17BE800F83A55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CEE99A81BE17BE800F83A55 /* Main.storyboard */; };
 		9CEE99AD1BE17BE800F83A55 /* ContactsApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CEE99AB1BE17BE800F83A55 /* ContactsApplication.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		9C417AED1BE3328400F6E5A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9C417AEF1BE333B100F6E5A6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9C417AF11BE346B200F6E5A6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9CEE99A11BE17BE800F83A55 /* ContactsApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEE99A41BE17BE800F83A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CEE99A91BE17BE800F83A55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C417AF21BE346B200F6E5A6 /* MessageUI.framework in Frameworks */,
 				9C417AEE1BE3328400F6E5A6 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +89,7 @@
 		9CEE99981BE17BE800F83A55 = {
 			isa = PBXGroup;
 			children = (
+				9C417AF11BE346B200F6E5A6 /* MessageUI.framework */,
 				9C417AED1BE3328400F6E5A6 /* CoreData.framework */,
 				9CEE99A31BE17BE800F83A55 /* ContactsApplication */,
 				9CEE99BB1BE17BE900F83A55 /* ContactsApplicationTests */,

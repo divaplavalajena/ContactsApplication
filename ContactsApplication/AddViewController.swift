@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
     @IBOutlet var nameTextField: UITextField!
     
@@ -92,11 +93,50 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func Call(sender: AnyObject) {
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(numberTextField.text!)")!)
+        
+        
+        
     }
     
     @IBAction func SMS(sender: AnyObject) {
+        
+        let messageVC = MFMessageComposeViewController()
+        
+        messageVC.recipients = ["\(numberTextField.text!)"]
+        messageVC.body = "Hello " + nameTextField.text!
+        
+        messageVC.messageComposeDelegate = self
+        
+        self.presentViewController(messageVC, animated: true, completion: nil)
+        
     }
     
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        
+        switch (result.rawValue) {
+            
+        case MessageComposeResultCancelled.rawValue:
+            print("Cancelled")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        case MessageComposeResultFailed.rawValue:
+            print("Failed")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        case MessageComposeResultSent.rawValue:
+            print("Sent")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        default:
+            break
+            
+        }
+        
+        
+        
+    }
     
 
 }
